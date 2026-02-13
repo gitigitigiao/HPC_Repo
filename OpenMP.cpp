@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <omp.h>
 
 int main() {
     std::vector<int> numbers = {1, 2, 3, 4, 5};
