@@ -11,12 +11,16 @@
 }
 
 // cuda 核函数：在 GPU 上执行矩阵加法
-__global__ void sumMatrixOnGPU(float *A, float *B, float *C, int N) {
+__global__ void sumMatrixOnGPU(float *A, float *B, float *C, int Nx, int Ny) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     int j = blockIdx.y * blockDim.y + threadIdx.y;
 
-    if (i < N && j < N) {
-        int idx = j * N + i; // 计算矩阵元素的线性索引
+    if (i < Nx && j < Ny) {
+        int idx = j * Nx + i; // 计算矩阵元素的线性索引
         C[idx] = A[idx] + B[idx]; // 执行矩阵加法
     }
+}
+
+int main(){
+    return 0;
 }
