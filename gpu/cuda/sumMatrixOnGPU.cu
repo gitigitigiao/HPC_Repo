@@ -21,6 +21,17 @@ __global__ void sumMatrixOnGPU(float *A, float *B, float *C, int Nx, int Ny) {
     }
 }
 
-int main(){
+int main(int argc, char** argv){
+    printf("%s Starting...", argv[0]);
+    int nx = 1<<14;
+    int ny = 1<<14;
+    int nxy = nx*ny;
+    int nBytes = nxy*sizeof(float);
+
+    float *h_A, *h_B;
+    h_A = (float*)malloc(nBytes);
+    h_B = (float*)malloc(nBytes);
+
+    float *d_A, *d_B, *d_C;
     return 0;
 }
